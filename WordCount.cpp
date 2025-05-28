@@ -128,7 +128,7 @@ void WordCount::dumpWordsSortedByWord(std::ostream &out) const {
         }
     }
 
-    std::sort(allWords.begin(), allWords.end(), [](const auto& a, const auto& b) {
+    std::sort(allWords.begin(), allWords.end(), [](const std::pair<std::string, int>& a, const std::pair<std::string, int>& b) {
         return a.first > b.first;  // descending order
     });
 
@@ -147,7 +147,7 @@ void WordCount::dumpWordsSortedByOccurence(std::ostream &out) const {
         }
     }
 
-    std::sort(allWords.begin(), allWords.end(), [](const auto& a, const auto& b) {
+    std::sort(allWords.begin(), allWords.end(), [](const std::pair<std::string, int>& a, const std::pair<std::string, int>& b) {
         if (a.second != b.second) return a.second < b.second;
         return a.first < b.first;
     });
